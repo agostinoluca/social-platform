@@ -4,24 +4,24 @@
 
 ### Progettare il database per la piattaforma social, creando il diagramma ER e poi svolgendo le query fornite. Definiamo anche delle Classi secondo i principi di OOP.
 
-### Obiettivi
+### Obiettivi:
 
-● modellare un database partendo da entità reali
-● saper definire le relazioni tra le entità
-● importare un database ed eseguire query
-● connettersi a un db con php
-● stampare dati in pagina con php
-● sfruttare i principi e vantaggi della programmazione ad oggetti (oop)
+- modellare un database partendo da entità reali
+- saper definire le relazioni tra le entità
+- importare un database ed eseguire query
+- connettersi a un db con php
+- stampare dati in pagina con php
+- sfruttare i principi e vantaggi della programmazione ad oggetti (oop)
 
 ### Argomenti
 
-● PHP fundamentals
-● funzioni e include
-● Principi di OOP (classi, istanze, variabili d'istanza, metodi d'istanza, costruttore)
-● Database (Tabelle, Relazioni e Data Types)
-● Diagramma E/R
-● PhpMyAdmin
-● Query SQL (SELECT, COUNT, AVG, SUM, AS, JOIN, WHERE, LIKE, ORDER BY, GROUP BY)
+- PHP fundamentals
+- funzioni e include
+- Principi di OOP (classi, istanze, variabili d'istanza, metodi d'istanza, costruttore)
+- Database (Tabelle, Relazioni e Data Types)
+- Diagramma E/R
+- PhpMyAdmin
+- Query SQL (SELECT, COUNT, AVG, SUM, AS, JOIN, WHERE, LIKE, ORDER BY, GROUP BY)
 
 Consegna
 **Nome repo:** social-platform
@@ -63,18 +63,18 @@ Sfrutta i principi di ereditarietà e composizione.
 
 | **Post.php**                                                         |
 | -------------------------------------------------------------------- |
-| ● all'interno della classe sono dichiarate delle variabili d'istanza |
-| ● all'interno della classe è definito un costruttore                 |
-| ● all'interno della classe è definito almeno un metodo               |
-| ● tra i parametri del costruttore accetta un Media                   |
-| ● **BONUS:** il costruttore accetta più Media                        |
+| - all'interno della classe sono dichiarate delle variabili d'istanza |
+| - all'interno della classe è definito un costruttore                 |
+| - all'interno della classe è definito almeno un metodo               |
+| - tra i parametri del costruttore accetta un Media                   |
+| - **BONUS:** il costruttore accetta più Media                        |
 
 | **Media.php**                                                        |
 | -------------------------------------------------------------------- |
-| ● il sistema prevede immagini e video                                |
-| ● all'interno della classe sono dichiarate delle variabili d'istanza |
-| ● all'interno della classe è definito un costruttore                 |
-| ● all'interno della classe è definito almeno un metodo               |
+| - il sistema prevede immagini e video                                |
+| - all'interno della classe sono dichiarate delle variabili d'istanza |
+| - all'interno della classe è definito un costruttore                 |
+| - all'interno della classe è definito almeno un metodo               |
 
 In un nuovo file, vengono istanziati almeno due oggetti Post e stampati a schermo i valori delle relative proprietà.
 
