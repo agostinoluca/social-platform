@@ -7,7 +7,6 @@
 - FK = Foreign Key
 - NN = Not Null
 - UQ = Unique
-- INT = Integer
 - BIGINT = Big Integer
 - VARCHAR() = Variable Character Length
 - DATE = YYYY-MM-DD
@@ -22,7 +21,7 @@
 - email | VARCHAR(100) UQ NN
 - password | VARCHAR(100) NN
 - birthdate | DATE
-- phone | VARCHAR(30)
+- phone | VARCHAR(30) UQ
 - created_at | DATETIME NN
 - updated_at | DATETIME
 
@@ -60,7 +59,6 @@
 
 6. Comments
 
-- id | BIGINT PK AI NN
 - comment_text | TEXT NN
 - date | DATETIME NN
 - created_at | DATETIME NN
