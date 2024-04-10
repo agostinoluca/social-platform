@@ -29,11 +29,9 @@
 
 - id | BIGINT PK AI UQ NN
 - title | TEXT NN
-- date | DATETIME NN
 - created_at | DATETIME NN
 - updated_at | DATETIME
 - user_id | FK
-- tag_id | FK
 
 3. Medias
 
@@ -42,11 +40,10 @@
 - path | VARCHAR(255) NN
 - created_at | DATETIME
 - updated_at | DATETIME
-- user_id | FK
+- post_id | FK
 
 4. Likes
 
-- date | DATETIME NN
 - created_at | DATETIME NN
 - updated_at | DATETIME
 - post_id | FK
@@ -60,7 +57,6 @@
 6. Comments
 
 - comment_text | TEXT NN
-- date | DATETIME NN
 - created_at | DATETIME NN
 - updated_at | DATETIME
 - post_id | FK
