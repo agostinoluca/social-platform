@@ -1,5 +1,5 @@
 <?php
-var_dump('Hello World!');
+// var_dump('Hello World!');
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ var_dump('Hello World!');
 
 <body>
     <main>
-        <div class="container">
+        <div class="container mt-5">
             <img src="./schema/schema.png" alt="schema of database">
         </div>
     </main>
