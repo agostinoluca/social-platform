@@ -1,0 +1,22 @@
+:root {
+    --social-primary: rgb(13, 110, 253);
+    --social-secondary: lightgray;
+    --social-dark: black;
+    --social-light: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.black_shadow {
+    box-shadow: 0 0 1rem var(--social-dark);
+}
+
+.social_secondary {
+    color: var(--social-secondary);
+}
+
+.social_secondary:hover {
+    filter: brightness(100);
+}
