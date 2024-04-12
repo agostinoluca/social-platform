@@ -1,30 +1,59 @@
 <?php
-// DATABASE CONNECTION
 
-// CONSTANTS
-define('DB_SERVERNAME', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'root');
-define('DB_NAME', 'social-platform');
-
-//CONNECTION
-$connection = new mysqli(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-// CHECK CONTROL FOR ERROR
-if ($connection && $connection->connect_error) {
-    echo "Connection failed: " . $connection->connect_error;
-    die;
-}
-
-$sql_users = "SELECT `users`.`username` FROM `users`";
-
-$result = $connection->query($sql_users);
-
-var_dump($result);
 require_once __DIR__ . '/layout/head.php';
 ?>
 
 <main>
+    <section class="pt-5 pb-5">
+        <div class="container text-center ">
+            <h1>Welcome in Soocialean</h1>
+            <p class="lead pt-3">Connect with friends, share your thoughts, and discover new things!</p>
+            <button type="button" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#signUp">Sign Up Now</button>
+        </div>
+        <!-- /div content of welcome section -->
+
+        <div id="signUp" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ops, sorry!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This action is not yet integrated.<br>Maybe it will be in the future!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok, I'll be back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /modal advise for signUp button -->
+    </section>
+    <!-- /section of welcome -->
+
+
+    <section class="mt-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Discover</h2>
+                    <img style="max-width: 100%; aspect-ratio: 16/9;" src="./src/img/discover.jpg" alt="">
+                    <p>Explore new content and discover what's trending.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Connect</h2>
+                    <img style="max-width: 100%;" src="./src/img/connect.jpg" alt="">
+                    <p>Connect with friends and family to share moments together.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Engage</h2>
+                    <img style="max-width: 100%;" src="./src/img/engage.jpg" alt="">
+                    <p>Engage with communities and discussions that interest you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </main>
 

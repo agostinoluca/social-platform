@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Platform</title>
+    <title>Soocialean</title>
     <!-- Local Css -->
     <link rel="stylesheet" href="./src/css/style.css">
     <!-- Bootstrap CSS v5.2.1 -->
@@ -14,15 +14,17 @@
 </head>
 
 <body class="bg-light">
-    <header class="bg-primary black_shadow p-5 d-flex justify-content-between align-items-center">
-        <div>
-            <img src="./src/img/soocialean.png" alt="Logo" width="250">
-            <!-- /logo -->
+    <header class="bg-primary black_shadow p-4">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div>
+                <img src="./src/img/soocialean.png" alt="Logo" width="200">
+                <!-- /logo -->
+            </div>
+            <div>
+                <button class="btn btn-primary fs-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <!-- /button of nav -->
         </div>
-        <div>
-            <button class="btn btn-primary fs-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-bars"></i></button>
-        </div>
-        <!-- /button of nav -->
     </header>
     <nav>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -32,6 +34,7 @@
             </div>
             <div class="offcanvas-body d-flex flex-column gap-3">
                 <a href="./index.php" class="text-secondary text-decoration-none">Homepage</a>
+                <a href="./users.php" class="text-secondary text-decoration-none">Cerca amici</a>
                 <a href="./query.php" class="text-secondary text-decoration-none">Query exercise</a>
                 <a href="./schema.php" class="text-secondary text-decoration-none">Schema of Database</a>
             </div>
