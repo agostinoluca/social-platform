@@ -12,11 +12,3 @@ a {
 .black_shadow {
     box-shadow: 0 0 1rem var(--social-dark);
 }
-
-.social_secondary {
-    color: var(--social-secondary);
-}
-
-.social_secondary:hover {
-    filter: brightness(100);
-}

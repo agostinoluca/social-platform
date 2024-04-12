@@ -3,7 +3,9 @@ require_once __DIR__ . '/layout/head.php';
 ?>
 
 <main>
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <img src="./schema/schema.png" alt="schema of database">
     </div>
 </main>
+
+<?php require_once __DIR__ . '/layout/footer.php'; ?>
