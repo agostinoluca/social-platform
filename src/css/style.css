@@ -1,14 +1,44 @@
+/* #region Common */
+
+
 :root {
     --social-primary: rgb(13, 110, 253);
     --social-secondary: lightgray;
     --social-dark: black;
     --social-light: white;
+    --social-gray: gray;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    background-color: var(--social-secondary);
 }
 
 a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
+/* #endregion Common */
+
+/* #region Utilities */
+.mt_6 {
+    margin-top: 6rem;
+}
+
+.mt_8 {
+    margin-top: 8rem;
+}
+
+.gray_shadow {
+    box-shadow: 0 0 0.5rem var(--social-gray);
+}
+
 .black_shadow {
     box-shadow: 0 0 1rem var(--social-dark);
 }
+
+/* #endregion Utilities */

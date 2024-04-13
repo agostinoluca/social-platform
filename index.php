@@ -1,9 +1,9 @@
 <?php
 
-require_once __DIR__ . '/layout/head.php';
+require_once __DIR__ . '/layouts/head.php';
 ?>
 
-<main>
+<main class="mt_8">
     <section class="pt-5 pb-5">
         <div class="container text-center ">
             <h1>Welcome in Soocialean</h1>
@@ -38,18 +38,18 @@ require_once __DIR__ . '/layout/head.php';
             <div class="row">
                 <div class="col-md-4">
                     <h2>Discover</h2>
-                    <img style="max-width: 100%; aspect-ratio: 16/9;" src="./src/img/discover.jpg" alt="">
-                    <p>Explore new content and discover what's trending.</p>
+                    <img src="./src/img/discover.jpg" class="rounded-4 my-3 " alt="image of colorful signs">
+                    <p>Explore new content and discover what's trending</p>
                 </div>
                 <div class="col-md-4">
                     <h2>Connect</h2>
-                    <img style="max-width: 100%;" src="./src/img/connect.jpg" alt="">
-                    <p>Connect with friends and family to share moments together.</p>
+                    <img src="./src/img/connect.jpg" class="rounded-4 my-3 " alt="image of a group of friends">
+                    <p>Connect with friends and family to share moments together</p>
                 </div>
                 <div class="col-md-4">
                     <h2>Engage</h2>
-                    <img style="max-width: 100%;" src="./src/img/engage.jpg" alt="">
-                    <p>Engage with communities and discussions that interest you.</p>
+                    <img src="./src/img/engage.jpg" class="rounded-4 my-3 " alt="image of a group of people with emoticon faces">
+                    <p>Engage with communities and discussions that interest you</p>
                 </div>
             </div>
         </div>
@@ -57,4 +57,4 @@ require_once __DIR__ . '/layout/head.php';
 
 </main>
 
-<?php require_once __DIR__ . '/layout/footer.php'; ?>
+<?php require_once __DIR__ . '/layouts/footer.php'; ?>

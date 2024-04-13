@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/layout/head.php';
+require_once __DIR__ . '/layouts/head.php';
 ?>
 
-<main>
+<main class="mt_8">
     <div class="container mt-5 mb-5">
         <div>
             <h5>1. Seleziona gli utenti che hanno postato almeno un video (25)</h5>
@@ -61,4 +61,4 @@ require_once __DIR__ . '/layout/head.php';
     </div>
 </main>
 
-<?php require_once __DIR__ . '/layout/footer.php'; ?>
+<?php require_once __DIR__ . '/layouts/footer.php'; ?>

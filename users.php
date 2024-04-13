@@ -19,10 +19,10 @@ if ($connection && $connection->connect_error) {
 $sql_users = "SELECT * FROM `users`";
 $result = $connection->query($sql_users);
 
-require_once __DIR__ . '/layout/head.php';
+require_once __DIR__ . '/layouts/head.php';
 ?>
 
-<main class="pt-3 pb-5">
+<main class="pt-3 pb-5 mt_6">
     <div class="container">
         <div class="row">
             <?php
@@ -30,7 +30,7 @@ require_once __DIR__ . '/layout/head.php';
                 while ($row = $result->fetch_assoc()) :
                     ['username' => $username, 'email' => $email, 'birthdate' => $birthday] = $row ?>
                     <div class="col g-3 ">
-                        <div class="card" style="width:18rem; min-height:12rem;">
+                        <div class="card bg-light gray_shadow" style="width:18rem; min-height:12rem;">
                             <div class="card-body d-flex flex-column justify-content-between gap-2">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="card-title"><?= $username ?></h5>
@@ -60,10 +60,13 @@ require_once __DIR__ . '/layout/head.php';
                                     </div>
                                 </div>
                                 <p class="card-text">Date of birth: <?= $birthday ?></p>
-                                <h6 class="card-subtitle mb-2 text-muted ">email: <?= $email ?></h6>
+                                <h6 class="card-subtitle mb-2 text-muted "><i class="fa-solid fa-paper-plane"></i></i> <?= $email ?></h6>
                             </div>
+                            <!-- /.card-body -->
                         </div>
+                        <!-- /.card -->
                     </div>
+                    <!-- /.col -->
                 <?php
                 endwhile;
             elseif ($result->num_rows <= 0) : ?>
@@ -75,4 +78,4 @@ require_once __DIR__ . '/layout/head.php';
     </div>
 </main>
 
-<?php require_once __DIR__ . '/layout/footer.php'; ?>
+<?php require_once __DIR__ . '/layouts/footer.php'; ?>
