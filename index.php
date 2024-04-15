@@ -8,7 +8,8 @@ require_once __DIR__ . '/layouts/head.php';
         <div class="container text-center ">
             <h1>Welcome in Soocialean</h1>
             <p class="lead pt-3">Connect with friends, share your thoughts, and discover new things!</p>
-            <button type="button" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#signUp">Sign Up Now</button>
+            <button type="button" class="btn btn-secondary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#signUp">Login</button>
+            <button type="button" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#signUp">Sign Up</button>
         </div>
         <!-- /div content of welcome section -->
 

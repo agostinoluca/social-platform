@@ -16,13 +16,29 @@ if ($connection && $connection->connect_error) {
     die;
 }
 
-$sql_users = "SELECT * FROM `users`";
+$name = $_POST['name'];
+
+$sql_users = "SELECT * FROM `users` WHERE `username` LIKE '%{$name}%'";
 $result = $connection->query($sql_users);
 
 require_once __DIR__ . '/layouts/head.php';
 ?>
 
 <main class="pt-3 pb-5 mt_6">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="py-2">
+                    <form action="" method="POST">
+                        <input class="btn btn-light" type="text" name="name" id="name" placeholder="type a name here">
+                        <input class="btn btn-primary" type="submit" value="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container for input of form -->
+
     <div class="container">
         <div class="row">
             <?php
@@ -44,14 +60,15 @@ require_once __DIR__ . '/layouts/head.php';
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Ops, sorry!</h5>
+                                                        <h5 class="modal-title">You are not logged in!</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>This action is not yet integrated.<br>Maybe it will be in the future!</p>
+                                                        <p>To add friends, you need to have an account.<br>Log in or sign up to continue.</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok, I'll be back</button>
+                                                        <a href="index.php" class="btn btn-primary">Go to login page</a>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -71,7 +88,7 @@ require_once __DIR__ . '/layouts/head.php';
                 endwhile;
             elseif ($result->num_rows <= 0) : ?>
                 <div class="container pt-5 ">
-                    <h2 class="text-light">Ops, something went wrong!</h2>
+                    <h2 class="text-dark">No results for your search.</h2>
                 </div>
             <?php endif ?>
         </div>
