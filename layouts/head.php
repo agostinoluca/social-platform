@@ -38,9 +38,11 @@
             </div>
             <div class="offcanvas-body d-flex flex-column gap-3">
                 <a href="./index.php" class="text-secondary text-decoration-none">Homepage</a>
+                <a href="./feeds.php" class="text-secondary text-decoration-none">Feeds</a>
                 <a href="./users.php" class="text-secondary text-decoration-none">Search friends</a>
-                <a href="./query.php" class="text-secondary text-decoration-none">Query exercise</a>
                 <a href="./schema.php" class="text-secondary text-decoration-none">Schema of Database</a>
+                <a href="./query.php" class="text-secondary text-decoration-none">Query exercise</a>
+                <a href="./about.php" class="text-secondary text-decoration-none">About Us</a>
             </div>
         </div>
     </nav>
