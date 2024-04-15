@@ -5,7 +5,7 @@ require_once __DIR__ . '/layouts/head.php';
 
 <main class="mt_8">
     <section class="pt-5 pb-5">
-        <div class="container text-center ">
+        <div class="container text-center">
             <h1>Welcome in Soocialean</h1>
             <p class="lead pt-3">Connect with friends, share your thoughts, and discover new things!</p>
             <button type="button" class="btn btn-secondary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#signUp">Login</button>

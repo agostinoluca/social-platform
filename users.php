@@ -1,25 +1,13 @@
 <?php
-// DATABASE CONNECTION
+require_once __DIR__ . '/database/DbConnect.php';
 
-// CONSTANTS
-define('DB_SERVERNAME', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'root');
-define('DB_NAME', 'social-platform');
-
-//CONNECTION
-$connection = new mysqli(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-// CHECK CONTROL FOR ERROR
-if ($connection && $connection->connect_error) {
-    echo "Connection failed: " . $connection->connect_error;
-    die;
-}
+$connection = DbConnection::connect();
 
 $name = $_POST['name'];
-
 $sql_users = "SELECT * FROM `users` WHERE `username` LIKE '%{$name}%'";
 $result = $connection->query($sql_users);
+
+DbConnection::disconnect($connection);
 
 require_once __DIR__ . '/layouts/head.php';
 ?>
