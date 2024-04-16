@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/database/DbConnect.php';
+require_once __DIR__ . '/Models/Functions.php';
 
 $connection = DbConnection::connect();
 
@@ -30,11 +31,15 @@ require_once __DIR__ . '/layouts/head.php';
     <div class="container">
         <div class="row">
             <?php
+            // se num_rows ha almeno un valore
             if ($result->num_rows > 0) :
+                // ciclo con un while i risultati con un fetch_assoc()
                 while ($row = $result->fetch_assoc()) :
+                    // uso il destructuring per le assegnazioni
                     ['username' => $username, 'email' => $email, 'birthdate' => $birthday] = $row ?>
-                    <div class="col g-3 ">
-                        <div class="card bg-light gray_shadow" style="width:18rem; min-height:12rem;">
+                    <div class="col g-3">
+
+                        <div class="card bg-light gray_shadow user_card">
                             <div class="card-body d-flex flex-column justify-content-between gap-2">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="card-title"><?= $username ?></h5>
@@ -43,29 +48,16 @@ require_once __DIR__ . '/layouts/head.php';
                                             <i class="fa-solid fa-user-plus"></i>
                                         </button>
                                         <!-- /button (icon add friend) -->
-
-                                        <div id="addFriend" class="modal" tabindex="-1">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">You are not logged in!</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>To add friends, you need to have an account.<br>Log in or sign up to continue.</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <a href="index.php" class="btn btn-primary">Go to login page</a>
-                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /modal add friend -->
                                     </div>
                                 </div>
-                                <p class="card-text">Date of birth: <?= $birthday ?></p>
-                                <h6 class="card-subtitle mb-2 text-muted "><i class="fa-solid fa-paper-plane"></i></i> <?= $email ?></h6>
+
+                                <!-- creo l'istanza per recuperare la funzione dalla classe Functions e la utilizzo nel ciclo -->
+                                <?php $randomImage = new Functions(); ?>
+                                <col-8 class="py-2 m-auto">
+                                    <img class="rounded-5" src="<?= $randomImage->generateImage('192', '192') ?>" alt="random image by lorem picsum">
+                                </col-8>
+                                <p class="card-text text-center">Date of birth: <?= $birthday ?></p>
+                                <span class="card-subtitle mb-2 text-muted fs_85"><i class="fa-solid fa-paper-plane"></i></i> <?= $email ?></span>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -74,6 +66,7 @@ require_once __DIR__ . '/layouts/head.php';
                     <!-- /.col -->
                 <?php
                 endwhile;
+            // se num_rows è minore o uguale a zero risultati stampo un messaggio in pagina
             elseif ($result->num_rows <= 0) : ?>
                 <div class="container pt-5 ">
                     <h2 class="text-dark">No results for your search.</h2>
@@ -81,6 +74,26 @@ require_once __DIR__ . '/layouts/head.php';
             <?php endif ?>
         </div>
     </div>
+
+
+    <div id="addFriend" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">You are not logged in!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>To add friends, you need to have an account.<br>Log in or sign up to continue.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="index.php" class="btn btn-primary">Go to login page</a>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /modal add friend -->
 </main>
 
 <?php require_once __DIR__ . '/layouts/footer.php'; ?>
