@@ -3,7 +3,7 @@
 require_once __DIR__ . '/layouts/head.php';
 ?>
 
-<main class="mt_8">
+<main class="mt_8 pb-5">
     <section class="pt-5 pb-5">
         <div class="container text-center">
             <h1>Welcome in Soocialean</h1>

@@ -24,22 +24,28 @@ function generateImage()
 require_once __DIR__ . '/layouts/head.php';
 ?>
 
-<main class="mt_8">
+<main class="mt_8 pb-5">
     <div class="container">
         <div class="row justify-content-center ">
             <?php while ($row = $result->fetch_assoc()) :
                 ['author_post' => $username, 'title' => $title, 'num_likes' => $likes] = $row ?>
-                <div class="col-9 p-3">
+                <div class="col-12 col-lg-9 p-3">
                     <div class="card bg-light gray_shadow">
                         <div class="card-body d-flex flex-column justify-content-between gap-2">
                             <h5 class="card-title"><?= $username ?></h5>
                             <p class="card-text"><?= $title ?></p>
                             <img class="rounded-2" src="<?= generateImage() ?>" alt="random image by lorem picsum">
-
-                            <button type="button" class="border-0 bg-transparent text-secondary" data-bs-toggle="modal" data-bs-target="#addLike">
-                                <h5 class="text-end pt-2 "><i class="fa-regular fa-thumbs-up text-info"></i> <?= $likes ?></h5>
-                            </button>
-                            <!-- /button (icon add like) -->
+                            <div class="d-flex justify-content-between pt-2">
+                                <div class="d-flex gap-3">
+                                    <h5>TAG</h5>
+                                </div>
+                                <div>
+                                    <button type="button" class="border-0 bg-transparent text-secondary" data-bs-toggle="modal" data-bs-target="#addLike">
+                                        <h5><i class="fa-regular fa-thumbs-up text-info"></i> <?= $likes ?></h5>
+                                    </button>
+                                    <!-- /button (icon add like) -->
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

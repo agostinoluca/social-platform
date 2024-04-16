@@ -3,14 +3,14 @@ require_once __DIR__ . '/layouts/head.php';
 ?>
 
 <main>
-    <div class="container mt_8">
+    <div class="container mt_8 pb-5 ">
         <div class="row mt-5 text-center main_about">
             <div class="col-12">
                 <h1 class="display-4 mb-3">About Us</h1>
                 <p class="lead">Web App created by a student of Boolean School.</p>
             </div>
             <!-- /title of about page -->
-            <div class="col-12 pb-3">
+            <div class="col-10 pb-3 m-auto">
                 <img src="./src/img/about.png" alt="">
             </div>
             <!-- /image of about page -->
