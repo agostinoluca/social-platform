@@ -1,6 +1,5 @@
 /* #region Common */
 
-
 :root {
     --social-primary: rgb(13, 110, 253);
     --social-secondary: lightgray;
@@ -26,6 +25,10 @@ img {
 /* #endregion Common */
 
 /* #region Utilities */
+.mx_15 {
+    margin: 0 0.15rem;
+}
+
 .mt_6 {
     margin-top: 6rem;
 }
@@ -38,13 +41,20 @@ img {
     font-size: 0.85rem;
 }
 
-.tag {
+.text_gray {
+    color: var(--social-gray);
+}
+
+.bg_primary {
+    background-color: var(--social-primary);
+}
+
+.bg_secondary {
+    background-color: var(--social-secondary);
+}
+
+.bg_gray {
     background-color: var(--social-gray);
-    border-radius: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    text-transform: uppercase;
-    color: var(--social-light);
-    font-size: 0.75rem;
 }
 
 .gray_shadow {
@@ -53,6 +63,14 @@ img {
 
 .black_shadow {
     box-shadow: 0 0 1rem var(--social-dark);
+}
+
+.tag {
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+    color: var(--social-light);
+    font-size: 0.75rem;
 }
 
 /* #endregion Utilities */

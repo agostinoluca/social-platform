@@ -2,12 +2,14 @@
 require_once __DIR__ . '/Models/Functions.php';
 require_once __DIR__ . '/layouts/head.php';
 require_once __DIR__ . '/models/Post.php';
+require_once __DIR__ . '/models/Media.php';
 
 // post inseriti con costruttore della classe Post
 $postLuca = new Post(0, 'Luca Agostino', 'Sto facendo la Milestone 4 di Boolean, non ho tempo per fare altre cose!', 16, ['develop', 'Boolean', 'busy']);
-$postFabio = new Post(1, 'Fabio Pacifici', 'Sto insegnando PHP e MySql.', 28, ['teacher', 'Boolean']);
-$postLuigi = new Post(2, 'Luigi Micco', 'Sono a disposizione per rivedere gli argomenti di PHP e MySql.', 47, ['support', 'teacher', 'Boolean']);
+$postFabio = new Media(1, 'Fabio Pacifici', 'Sto insegnando PHP e MySql.', 28, ['teacher', 'Boolean'], ['photo', 'video', 'slide']);
+$postLuigi = new Media(2, 'Luigi Micco', 'Sono a disposizione per rivedere gli argomenti di PHP e MySql.', 47, ['support', 'teacher', 'Boolean'], ['video']);
 $postFabiana = new Post(3, 'Fabiana', 'Con la scusa del corso mio marito non fa più niente in casa &#128545; &#128545; &#128545;', 732, ['fury', 'patience', 'divorce']);
+
 
 // creo un array con le costanti dei post appena creati
 $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
@@ -26,14 +28,31 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                 <div class="col-12 col-lg-9 p-3">
                     <div class="card bg-light gray_shadow">
                         <div class="card-body d-flex flex-column justify-content-between gap-2">
-                            <h5 class="card-title"><?= $post->getPostUsername() ?></h5>
+                            <div class="d-flex justify-content-between ">
+                                <h5 class="card-title"><?= $post->getPostUsername() ?></h5>
+                                <span>
+                                    <!-- se $post è un'istanza della classe Media -->
+                                    <?php if ($post instanceof Media) : ?>
+                                        <?php foreach ($post->getType() as $type) : ?>
+                                            <span class="tag bg_primary mx_15">
+                                                <?= $type ?>
+                                            </span>
+                                        <?php endforeach; ?>
+                                        <!-- altrimenti posta la stringa 'No Media' -->
+                                    <?php else : ?>
+                                        <span class="tag bg_secondary text_gray">
+                                            No Media
+                                        </span>
+                                    <?php endif; ?>
+                                </span>
+                            </div>
                             <p class="card-text"><?= $post->getPostTitle() ?></p>
                             <img class="rounded-2" src="<?= $randomImage->generateImage('1920', '1080') ?>" alt="random image by lorem picsum">
                             <div class="d-flex justify-content-between pt-2">
                                 <div>
                                     <!-- ciclo dentro la array dei tags per recuperare il singolo tag -->
                                     <?php foreach ($post->getPostTags() as $tag) : ?>
-                                        <span class="tag"><?= $tag ?></span>
+                                        <span class="tag bg_gray"><?= $tag ?></span>
                                     <?php endforeach; ?>
                                 </div>
                                 <div>
