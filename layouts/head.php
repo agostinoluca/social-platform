@@ -31,6 +31,7 @@
         </div>
     </header>
     <nav>
+        <!-- creo un menù offcanvas con Bootstrap dove inserirò gli href di tutte le mie pagine -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Soocialean sections</h5>
@@ -38,7 +39,8 @@
             </div>
             <div class="offcanvas-body d-flex flex-column gap-3">
                 <a href="./index.php" class="text-secondary text-decoration-none">Homepage</a>
-                <a href="./feeds.php" class="text-secondary text-decoration-none">Feeds</a>
+                <a href="./posts.php" class="text-secondary text-decoration-none">Friends' Posts</a>
+                <a href="./feeds.php" class="text-secondary text-decoration-none">Public Feeds</a>
                 <a href="./users.php" class="text-secondary text-decoration-none">Search friends</a>
                 <a href="./schema.php" class="text-secondary text-decoration-none">Schema of Database</a>
                 <a href="./query.php" class="text-secondary text-decoration-none">Query exercise</a>
