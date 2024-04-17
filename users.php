@@ -4,9 +4,25 @@ require_once __DIR__ . '/Models/Functions.php';
 
 $connection = DbConnection::connect();
 
-$name = $_POST['name'];
-$sql_users = "SELECT * FROM `users` WHERE `username` LIKE '%{$name}%'";
-$result = $connection->query($sql_users);
+// $sql_users = "SELECT * FROM `users` WHERE `username` LIKE 'Luca'";
+// $result = $connection->query($sql_users);
+
+// aggiungo una condizione con il prepare statement per evitare le SQL injection
+if (!empty($_POST['name'])) {
+    $name = "%" . $_POST['name'] . "%";
+    $stmt = $connection->prepare("SELECT * FROM `users` WHERE `username` LIKE ? ");
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    // se il form è vuoto carica tutti gli utenti in pagina
+} else {
+    $name = "%";
+    $sql_users = "SELECT * FROM `users` WHERE `username` LIKE ?";
+    $stmt = $connection->prepare($sql_users);
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+    $result = $stmt->get_result();
+}
 
 DbConnection::disconnect($connection);
 
