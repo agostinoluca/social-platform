@@ -5,10 +5,10 @@ require_once __DIR__ . '/models/Post.php';
 require_once __DIR__ . '/models/Media.php';
 
 // post inseriti con costruttore della classe Post
-$postLuca = new Post(0, 'Luca Agostino', 'Sto facendo la Milestone 4 di Boolean, non ho tempo per fare altre cose!', 16, ['develop', 'Boolean', 'busy']);
-$postFabio = new Media(1, 'Fabio Pacifici', 'Sto insegnando PHP e MySql.', 28, ['teacher', 'Boolean'], ['photo', 'video', 'slide']);
-$postLuigi = new Media(2, 'Luigi Micco', 'Sono a disposizione per rivedere gli argomenti di PHP e MySql.', 47, ['support', 'teacher', 'Boolean'], ['video']);
-$postFabiana = new Post(3, 'Fabiana', 'Con la scusa del corso mio marito non fa più niente in casa &#128545; &#128545; &#128545;', 732, ['fury', 'patience', 'divorce']);
+$postLuca = new Post(0, 'Luca Agostino', 'Sto facendo la Milestone 4 di Boolean, non ho tempo per fare altre cose!', 16, ['develop', 'Boolean', 'busy'], new DateTime());
+$postFabio = new Media(1, 'Fabio Pacifici', 'Sto insegnando PHP e MySql.', 28, ['teacher', 'Boolean'], new DateTime(), ['photo', 'video', 'slide']);
+$postLuigi = new Media(2, 'Luigi Micco', 'Sono a disposizione per rivedere gli argomenti di PHP e MySql.', 47, ['support', 'teacher', 'Boolean'], new DateTime(), ['video']);
+$postFabiana = new Post(3, 'Fabiana', 'Con la scusa del corso mio marito non fa più niente in casa &#128545; &#128545; &#128545;', 732, ['fury', 'patience', 'divorce'], new DateTime());
 
 
 // creo un array con le costanti dei post appena creati
@@ -29,7 +29,10 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                     <div class="card bg-light gray_shadow">
                         <div class="card-body d-flex flex-column justify-content-between gap-2">
                             <div class="d-flex justify-content-between ">
-                                <h5 class="card-title"><?= $post->getPostUsername() ?></h5>
+                                <div>
+                                    <h5 class="card-title"><?= $post->getPostUsername() ?></h5>
+                                    <span class="fs_85">Ha pubblicato il <?= $post->formatDate($date) ?></span>
+                                </div>
                                 <span>
                                     <!-- se $post è un'istanza della classe Media -->
                                     <?php if ($post instanceof Media) : ?>

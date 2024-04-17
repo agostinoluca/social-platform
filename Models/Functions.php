@@ -9,4 +9,13 @@ class Functions
         $imageUrl = "https://picsum.photos/{$width}/{$height}?random={$randomNumber}";
         return $imageUrl;
     }
+
+    // funzione per formattare la data nel formato nostrano
+    public function formatDate($date)
+    {
+        // converto la data in un oggetto DateTime
+        $dateTime = new DateTime($date);
+        // formatto la data nella versione 00-00-0000
+        return $dateTime->format('d-m-Y');
+    }
 }

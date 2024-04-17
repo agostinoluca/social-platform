@@ -4,7 +4,7 @@ require_once __DIR__ . '/Models/Functions.php';
 
 $connection = DbConnection::connect();
 
-$sql_posts = "SELECT `users`.`username` AS author_post, `posts`.`title`, `posts`.`tags`, COUNT(`likes`.`post_id`) AS num_likes
+$sql_posts = "SELECT `users`.`username` AS author_post, `posts`.`title`, `posts`.`tags`, `posts`.`date`, COUNT(`likes`.`post_id`) AS num_likes
 FROM `posts`
 JOIN `users` ON `posts`.`user_id` = `users`.`id`
 LEFT JOIN `likes` ON `posts`.`id` = `likes`.`post_id`
@@ -24,19 +24,23 @@ require_once __DIR__ . '/layouts/head.php';
         <div class="row justify-content-center ">
             <!-- ciclo con un while utilizzando un fetch_assoc() per recuperare un'array associativa con chiave (colonna) e valore (riga) -->
             <?php while ($row = $result->fetch_assoc()) :
-                ['author_post' => $username, 'title' => $title, 'num_likes' => $likes, 'tags' => $tags] = $row;
+                ['author_post' => $username, 'title' => $title, 'num_likes' => $likes, 'tags' => $tags, 'date' => $date] = $row;
 
                 // converto la stringa JSON dei tags originari in un array PHP con json_decode
                 $tagsArray = json_decode($tags, true);
 
                 // creo l'istanza per recuperare la funzione dalla classe Functions
                 $randomImage = new Functions();
+                $formatDate = new Functions();
 
             ?>
                 <div class="col-12 col-lg-9 p-3">
                     <div class="card bg-light gray_shadow">
                         <div class="card-body d-flex flex-column justify-content-between gap-2">
-                            <h5 class="card-title"><?= $username ?></h5>
+                            <div>
+                                <h5 class="card-title"><?= $username ?></h5>
+                                <span class="fs_85">Ha pubblicato il <?= $formatDate->formatDate($date) ?></span>
+                            </div>
                             <p class="card-text"><?= $title ?></p>
                             <img class="rounded-2" src="<?= $randomImage->generateImage('1920', '1080') ?>" alt="random image by lorem picsum">
                             <div class="d-flex justify-content-between pt-2">
