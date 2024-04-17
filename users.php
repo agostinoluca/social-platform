@@ -4,9 +4,6 @@ require_once __DIR__ . '/Models/Functions.php';
 
 $connection = DbConnection::connect();
 
-// $sql_users = "SELECT * FROM `users` WHERE `username` LIKE 'Luca'";
-// $result = $connection->query($sql_users);
-
 // aggiungo una condizione con il prepare statement per evitare le SQL injection
 if (!empty($_POST['name'])) {
     $name = "%" . $_POST['name'] . "%";
