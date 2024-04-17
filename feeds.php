@@ -43,7 +43,7 @@ require_once __DIR__ . '/layouts/head.php';
                                 <!-- ciclo dentro la array dei tags per ottenere i singoli tag e incartarli dentro a degli span -->
                                 <div>
                                     <?php foreach ($tagsArray as $tag) : ?>
-                                        <span class="tag"><?= $tag ?></span>
+                                        <span class="tag bg_gray"><?= $tag ?></span>
                                     <?php endforeach; ?>
                                 </div>
                                 <div>
