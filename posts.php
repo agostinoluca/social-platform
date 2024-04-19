@@ -60,7 +60,7 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                                 </div>
                                 <div>
                                     <button type="button" class="border-0 bg-transparent text-secondary" data-bs-toggle="modal" data-bs-target="#addLike">
-                                        <h5><i class="fa-regular fa-thumbs-up text-info"></i> <?= $post->getPostLikes() ?></h5>
+                                        <h5><i class="fa-regular fa-thumbs-up text-info like_scale"></i> <?= $post->getPostLikes() ?></h5>
                                     </button>
                                     <!-- /button (icon add like) -->
                                 </div>

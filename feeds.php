@@ -15,6 +15,8 @@ $result = $connection->query($sql_posts);
 
 DbConnection::disconnect($connection);
 
+// creo l'istanza per recuperare le funzioni dalla classe Functions
+$function = new Functions();
 
 require_once __DIR__ . '/layouts/head.php';
 ?>
@@ -29,9 +31,6 @@ require_once __DIR__ . '/layouts/head.php';
                 // converto la stringa JSON dei tags originari in un array PHP con json_decode
                 $tagsArray = json_decode($tags, true);
 
-                // creo l'istanza per recuperare la funzione dalla classe Functions
-                $randomImage = new Functions();
-                $formatDate = new Functions();
 
             ?>
                 <div class="col-12 col-lg-9 p-3">
@@ -39,10 +38,10 @@ require_once __DIR__ . '/layouts/head.php';
                         <div class="card-body d-flex flex-column justify-content-between gap-2">
                             <div>
                                 <h5 class="card-title"><?= $username ?></h5>
-                                <span class="fs_85">Ha pubblicato il <?= $formatDate->formatDate($date) ?></span>
+                                <span class="fs_85">Ha pubblicato il <?= $function->formatDate($date) ?></span>
                             </div>
                             <p class="card-text"><?= $title ?></p>
-                            <img class="rounded-2" src="<?= $randomImage->generateImage('1920', '1080') ?>" alt="random image by lorem picsum">
+                            <img class="rounded-2" src="<?= $function->generateImage('1920', '1080') ?>" alt="random image by lorem picsum">
                             <div class="d-flex justify-content-between pt-2">
                                 <!-- ciclo dentro la array dei tags per ottenere i singoli tag e incartarli dentro a degli span -->
                                 <div>
@@ -52,7 +51,7 @@ require_once __DIR__ . '/layouts/head.php';
                                 </div>
                                 <div>
                                     <button type="button" class="border-0 bg-transparent text-secondary" data-bs-toggle="modal" data-bs-target="#addLike">
-                                        <h5><i class="fa-regular fa-thumbs-up text-info"></i> <?= $likes ?></h5>
+                                        <h5><i class="fa-regular fa-thumbs-up text-info like_scale"></i> <?= $likes ?></h5>
                                     </button>
                                     <!-- /button (icon add like) -->
                                 </div>

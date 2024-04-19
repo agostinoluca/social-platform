@@ -23,6 +23,9 @@ if (!empty($_POST['name'])) {
 
 DbConnection::disconnect($connection);
 
+// creo l'istanza per recuperare le funzioni della classe Functions
+$function = new Functions();
+
 require_once __DIR__ . '/layouts/head.php';
 ?>
 
@@ -52,7 +55,7 @@ require_once __DIR__ . '/layouts/head.php';
                     ['username' => $username, 'email' => $email, 'birthdate' => $birthday] = $row ?>
                     <div class="col g-3">
 
-                        <div class="card bg-light gray_shadow user_card">
+                        <div class="card bg-light gray_shadow user_card m-auto ">
                             <div class="card-body d-flex flex-column justify-content-between gap-2">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="card-title"><?= $username ?></h5>
@@ -64,12 +67,10 @@ require_once __DIR__ . '/layouts/head.php';
                                     </div>
                                 </div>
 
-                                <!-- creo l'istanza per recuperare la funzione dalla classe Functions e la utilizzo nel ciclo -->
-                                <?php $randomImage = new Functions(); ?>
                                 <col-8 class="py-2 m-auto">
-                                    <img class="rounded-5" src="<?= $randomImage->generateImage('192', '192') ?>" alt="random image by lorem picsum">
+                                    <img class="rounded-circle" src="<?= $function->generateImage('192', '192') ?>" alt="random image by lorem picsum">
                                 </col-8>
-                                <p class="card-text text-center">Date of birth: <?= $birthday ?></p>
+                                <p class="card-text fs_85 text-center">Birthday: <?= $function->formatDate($birthday) ?></p>
                                 <span class="card-subtitle mb-2 text-muted fs_85"><i class="fa-solid fa-paper-plane"></i></i> <?= $email ?></span>
                             </div>
                             <!-- /.card-body -->
