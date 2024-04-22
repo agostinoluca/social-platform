@@ -8,23 +8,17 @@ $connection = DbConnection::connect();
 if (!empty($_POST['name'])) {
     $name = "%" . $_POST['name'] . "%";
     $stmt = $connection->prepare("SELECT * FROM `users` WHERE `username` LIKE ? ");
-    $stmt->bind_param("s", $name);
-    $stmt->execute();
-    $result = $stmt->get_result();
     // se il form è vuoto carica tutti gli utenti in pagina
 } else {
     $name = "%";
     $sql_users = "SELECT * FROM `users` WHERE `username` LIKE ?";
     $stmt = $connection->prepare($sql_users);
-    $stmt->bind_param("s", $name);
-    $stmt->execute();
-    $result = $stmt->get_result();
 }
+$stmt->bind_param("s", $name);
+$stmt->execute();
+$result = $stmt->get_result();
 
 DbConnection::disconnect($connection);
-
-// creo l'istanza per recuperare le funzioni della classe Functions
-$function = new Functions();
 
 require_once __DIR__ . '/layouts/head.php';
 ?>
@@ -68,9 +62,9 @@ require_once __DIR__ . '/layouts/head.php';
                                 </div>
 
                                 <col-8 class="py-2 m-auto">
-                                    <img class="rounded-circle" src="<?= $function->generateImage('192', '192') ?>" alt="random image by lorem picsum">
+                                    <img class="rounded-circle" src="<?= Functions::generateImage('192', '192') ?>" alt="random image by lorem picsum">
                                 </col-8>
-                                <p class="card-text fs_85 text-center">Birthday: <?= $function->formatDate($birthday) ?></p>
+                                <p class="card-text fs_85 text-center">Birthday: <?= Functions::formatDate($birthday) ?></p>
                                 <span class="card-subtitle mb-2 text-muted fs_85"><i class="fa-solid fa-paper-plane"></i></i> <?= $email ?></span>
                             </div>
                             <!-- /.card-body -->

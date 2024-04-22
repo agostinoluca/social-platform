@@ -52,12 +52,13 @@ class Post
         return $this->date;
     }
 
-    // funzione per formattare la data nel formato nostrano
-    public function formatDate($date)
+    // funzione per formattare la data nel formato nostrano e l'orario ore:minuti
+    public static function formatDateHour($date)
     {
-        // converto la data in un oggetto DateTime
+        // converto data ed ora in un oggetto DateTime
         $dateTime = new DateTime($date);
-        // formatto la data nella versione 00-00-0000
-        return $dateTime->format('d-m-Y');
+
+        // formatto la data nella versione 00-00-0000 e concateno l' orario in formato ore:minuti
+        return $dateTime->format('d-m-Y') . ' alle ' . $dateTime->format('H:i');
     }
 }

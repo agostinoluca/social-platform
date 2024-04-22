@@ -31,7 +31,7 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                             <div class="d-flex justify-content-between ">
                                 <div>
                                     <h5 class="card-title"><?= $post->getPostUsername() ?></h5>
-                                    <span class="fs_85">Ha pubblicato il <?= $post->formatDate($date) ?></span>
+                                    <span class="fs_85">Ha pubblicato il <?= Post::formatDateHour($date) ?></span>
                                 </div>
                                 <span>
                                     <!-- se $post è un'istanza della classe Media -->

@@ -2,7 +2,7 @@
 
 class Functions
 {
-    public function generateImage($width, $height)
+    public static function generateImage($width, $height)
     {
 
         $randomNumber = rand(1, 1000);
@@ -10,8 +10,8 @@ class Functions
         return $imageUrl;
     }
 
-    // funzione per formattare la data nel formato nostrano
-    public function formatDate($date)
+    // funzione generica per formattare la data nel formato nostrano
+    public static function formatDate($date)
     {
         // converto la data in un oggetto DateTime
         $dateTime = new DateTime($date);
