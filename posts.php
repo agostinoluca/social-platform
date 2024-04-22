@@ -2,12 +2,11 @@
 require_once __DIR__ . '/Models/Functions.php';
 require_once __DIR__ . '/layouts/head.php';
 require_once __DIR__ . '/models/Post.php';
-require_once __DIR__ . '/models/Media.php';
 
 // post inseriti con costruttore della classe Post
 $postLuca = new Post(0, 'Luca Agostino', 'Sto facendo la Milestone 4 di Boolean, non ho tempo per fare altre cose!', 16, ['develop', 'Boolean', 'busy'], new DateTime());
-$postFabio = new Media(1, 'Fabio Pacifici', 'Sto insegnando PHP e MySql.', 28, ['teacher', 'Boolean'], new DateTime(), ['photo', 'video', 'slide']);
-$postLuigi = new Media(2, 'Luigi Micco', 'Sono a disposizione per rivedere gli argomenti di PHP e MySql.', 47, ['support', 'teacher', 'Boolean'], new DateTime(), ['video']);
+$postFabio = new PostAttached(1, 'Fabio Pacifici', 'Sto insegnando PHP e MySql.', 28, ['teacher', 'Boolean'], new DateTime(), ['lesson.rar', 'slide.pdf']);
+$postLuigi = new PostAttached(2, 'Luigi Micco', 'Sono a disposizione per rivedere gli argomenti di PHP e MySql.', 47, ['support', 'teacher', 'Boolean'], new DateTime(), ['slide.pdf']);
 $postFabiana = new Post(3, 'Fabiana', 'Con la scusa del corso mio marito non fa più niente in casa &#128545; &#128545; &#128545;', 732, ['fury', 'patience', 'divorce'], new DateTime());
 
 
@@ -31,11 +30,11 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                             <div class="d-flex justify-content-between ">
                                 <div>
                                     <h5 class="card-title"><?= $post->getPostUsername() ?></h5>
-                                    <span class="fs_85">Ha pubblicato il <?= Post::formatDateHour($date) ?></span>
+                                    <span class="fs_85">Published on <?= Post::formatDateHour($date) ?></span>
                                 </div>
                                 <span>
                                     <!-- se $post è un'istanza della classe Media -->
-                                    <?php if ($post instanceof Media) : ?>
+                                    <?php if ($post instanceof PostAttached) : ?>
                                         <?php foreach ($post->getType() as $type) : ?>
                                             <span class="tag bg_primary mx_15">
                                                 <?= $type ?>
@@ -44,7 +43,7 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                                         <!-- altrimenti posta la stringa 'No Media' -->
                                     <?php else : ?>
                                         <span class="tag bg_secondary text_gray">
-                                            No Media
+                                            No attachments
                                         </span>
                                     <?php endif; ?>
                                 </span>
