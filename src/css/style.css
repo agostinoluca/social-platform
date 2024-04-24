@@ -94,6 +94,8 @@ img {
 
 /* #endregion users.php */
 
+
+/* Animazione per i Likes */
 .like_scale:hover {
     animation: scale 1s linear infinite;
 }

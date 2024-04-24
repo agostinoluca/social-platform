@@ -114,7 +114,7 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                                     <!-- recupero i media dei posts -->
                                     <?php foreach ($post->getPostMedia() as $media) : ?>
 
-                                        <!-- ciclo la dimensione del files e la stampo a fianco all'icona -->
+                                        <!-- inserisco un bottone per il download (rimanda ad una Modal che chiede il Log In) -->
                                         <span>
                                             <button class="btn text_secondary" data-bs-toggle="modal" data-bs-target="#denied">
                                                 <i class="fa-regular fa-circle-down"></i>
