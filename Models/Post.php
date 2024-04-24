@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ . '/Media.php';
 class Post
 {
 
@@ -9,9 +11,10 @@ class Post
     protected int $likes;
     protected array $tags;
     protected DateTime $date;
+    protected array $media;
 
     // creo un costruttore per creare i nuovi post
-    public function __construct(int $id, string $username, string $title, int $likes, array $tags, DateTime $date)
+    public function __construct(int $id, string $username, string $title, int $likes, array $tags, DateTime $date, array $media)
     {
         $this->id = $id;
         $this->username = $username;
@@ -19,6 +22,7 @@ class Post
         $this->likes = $likes;
         $this->tags = $tags;
         $this->date = $date;
+        $this->media = $media;
     }
 
     // creo dei getters per leggere le informazioni (altrimenti protette dal 'protected' dell'istanza) 
@@ -52,6 +56,11 @@ class Post
         return $this->date;
     }
 
+    public function getPostMedia()
+    {
+        return $this->media;
+    }
+
     // funzione per formattare la data nel formato nostrano e l'orario ore:minuti
     public static function formatDateHour($date)
     {
@@ -60,23 +69,5 @@ class Post
 
         // formatto la data nella versione 00-00-0000 e concateno l' orario in formato ore:minuti
         return $dateTime->format('d-m-Y') . ' at ' . $dateTime->format('H:i');
-    }
-}
-
-// estendo la classe Post per eventuali pubblicazioni con allegati
-class PostAttached extends Post
-{
-    protected array $type;
-
-    // inserisco un costruttore che richiama con parent:: il costruttore della classe estesa Post
-    public function __construct(int $id, string $username, string $title, int $likes, array $tags, DateTime $date, array $type)
-    {
-        parent::__construct($id, $username, $title, $likes, $tags, $date);
-        $this->type = $type;
-    }
-
-    public function getType()
-    {
-        return $this->type;
     }
 }

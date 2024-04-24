@@ -4,11 +4,66 @@ require_once __DIR__ . '/layouts/head.php';
 require_once __DIR__ . '/models/Post.php';
 
 // post inseriti con costruttore della classe Post
-$postLuca = new Post(0, 'Luca Agostino', 'Sto facendo la Milestone 4 di Boolean, non ho tempo per fare altre cose!', 16, ['develop', 'Boolean', 'busy'], new DateTime());
-$postFabio = new PostAttached(1, 'Fabio Pacifici', 'Sto insegnando PHP e MySql.', 28, ['teacher', 'Boolean'], new DateTime(), ['lesson.rar', 'slide.pdf']);
-$postLuigi = new PostAttached(2, 'Luigi Micco', 'Sono a disposizione per rivedere gli argomenti di PHP e MySql.', 47, ['support', 'teacher', 'Boolean'], new DateTime(), ['slide.pdf']);
-$postFabiana = new Post(3, 'Fabiana', 'Con la scusa del corso mio marito non fa più niente in casa &#128545; &#128545; &#128545;', 732, ['fury', 'patience', 'divorce'], new DateTime());
+$postLuca = new Post(
+    0,
+    'Luca Agostino',
+    'Sto facendo la Milestone 4 di Boolean, non ho tempo per fare altre cose!',
+    16,
+    ['develop', 'Boolean', 'busy'],
+    new DateTime(),
+    []
+);
 
+$postFabio = new Post(
+    1,
+    'Fabio Pacifici',
+    'Sto insegnando PHP e MySql.',
+    28,
+    ['teacher', 'Boolean'],
+    new DateTime(),
+    [
+        new Document(
+            1,
+            'C:/Utenti/NomeUtente/Documenti/Progetti/Progetto2/Dati/Documentazione/Php.pdf',
+            'slide della lezione',
+            '2929,20 Mb',
+            new DateTime(),
+            'php',
+            'pdf',
+            7
+        ),
+        new Document(
+            2,
+            'C:/Utenti/NomeUtente/Documenti/Progetti/Progetto2/Dati/Documentazione/appunti.txt',
+            'Appunti della lezione su PHP',
+            '795,20 Kb',
+            new DateTime(),
+            'appunti',
+            'txt',
+            2
+        ),
+    ]
+);
+
+$postLuigi = new Post(
+    2,
+    'Luigi Micco',
+    'Sono a disposizione per rivedere gli argomenti di PHP e MySql.',
+    47,
+    ['support', 'teacher', 'Boolean'],
+    new DateTime(),
+    []
+);
+
+$postFabiana = new Post(
+    3,
+    'Fabiana',
+    'Con la scusa del corso mio marito non fa più niente in casa &#128545; &#128545; &#128545;',
+    732,
+    ['fury', 'patience', 'divorce'],
+    new DateTime(),
+    []
+);
 
 // creo un array con le costanti dei post appena creati
 $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
@@ -33,19 +88,7 @@ $posts = [$postLuigi, $postLuca, $postFabio, $postFabiana];
                                     <span class="fs_85">Published on <?= Post::formatDateHour($date) ?></span>
                                 </div>
                                 <span>
-                                    <!-- se $post è un'istanza della classe Media -->
-                                    <?php if ($post instanceof PostAttached) : ?>
-                                        <?php foreach ($post->getType() as $type) : ?>
-                                            <span class="tag bg_primary mx_15">
-                                                <?= $type ?>
-                                            </span>
-                                        <?php endforeach; ?>
-                                        <!-- altrimenti posta la stringa 'No Media' -->
-                                    <?php else : ?>
-                                        <span class="tag bg_secondary text_gray">
-                                            No attachments
-                                        </span>
-                                    <?php endif; ?>
+                                    <!-- logica per stampare icone dei Media -->
                                 </span>
                             </div>
                             <p class="card-text"><?= $post->getPostTitle() ?></p>
