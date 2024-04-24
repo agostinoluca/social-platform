@@ -53,7 +53,7 @@ class Post
 
     public function getPostDate()
     {
-        return $this->date;
+        return $this->date->format('Y-m-d H:i');
     }
 
     public function getPostMedia()

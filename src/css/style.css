@@ -2,7 +2,7 @@
 
 :root {
     --social-primary: rgb(13, 110, 253);
-    --social-secondary: lightgray;
+    --social-secondary: rgb(192, 190, 190);
     --social-dark: black;
     --social-light: white;
     --social-gray: gray;
@@ -39,6 +39,10 @@ img {
 
 .fs_85 {
     font-size: 0.85rem;
+}
+
+.text_secondary {
+    color: var(--social-secondary);
 }
 
 .text_gray {

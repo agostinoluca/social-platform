@@ -3,15 +3,17 @@ class Media
 {
     // inizializzo le variabili delle proprietà con protected
     protected string $id;
+    protected string $format;
     protected string $path;
     protected string $description;
     protected string $fileSize;
     protected DateTime $date;
 
-    // creo un costruttore per creare i nuovi post
-    public function __construct(int $id, string $path, string $description, string $fileSize, DateTime $date)
+    // creo un costruttore per creare i nuovi file media
+    public function __construct(int $id, string $format, string $path, string $description, string $fileSize, DateTime $date)
     {
         $this->id = $id;
+        $this->format = $format;
         $this->path = $path;
         $this->description = $description;
         $this->fileSize = $fileSize;
@@ -22,6 +24,11 @@ class Media
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getFormat()
+    {
+        return $this->format;
     }
 
     public function getPath()
@@ -49,11 +56,11 @@ class Photo extends Media
 {
     protected int $width;
     protected int $height;
-    protected int $photoResolution;
+    protected string $photoResolution;
 
-    public function __construct(int $id, string $path, string $description, string $fileSize, DateTime $date, int $width, int $height, int $photoResolution)
+    public function __construct(int $id, string $format, string $path, string $description, string $fileSize, DateTime $date, int $width, int $height, string $photoResolution)
     {
-        parent::__construct($id, $path, $description, $fileSize, $date);
+        parent::__construct($id, $format, $path, $description, $fileSize, $date);
         $this->width = $width;
         $this->height = $height;
         $this->photoResolution = $photoResolution;
@@ -77,26 +84,19 @@ class Photo extends Media
 
 class Video extends Media
 {
-    protected int $duration;
-    protected string $format;
-    protected int $videoResolution;
+    protected string $duration;
+    protected string $videoResolution;
 
-    public function __construct(int $id, string $path, string $description, string $fileSize, DateTime $date, float $duration, string $format, string $videoResolution)
+    public function __construct(int $id, string $format, string $path, string $description, string $fileSize, DateTime $date, string $duration, string $videoResolution)
     {
-        parent::__construct($id, $path, $description, $fileSize, $date);
+        parent::__construct($id, $format, $path, $description, $fileSize, $date);
         $this->duration = $duration;
-        $this->format = $format;
         $this->videoResolution = $videoResolution;
     }
 
     public function getDuration()
     {
         return $this->duration;
-    }
-
-    public function getFormat()
-    {
-        return $this->format;
     }
 
     public function getVideoResolution()
@@ -108,25 +108,18 @@ class Video extends Media
 class Document extends Media
 {
     protected string $title;
-    protected string $format;
     protected int $pages;
 
-    public function __construct(int $id, string $path, string $description, string $fileSize, DateTime $date, string $title, string $format, int $pages)
+    public function __construct(int $id, string $format, string $path, string $description, string $fileSize, DateTime $date, string $title, int $pages)
     {
-        parent::__construct($id, $path, $description, $fileSize, $date);
+        parent::__construct($id, $format, $path, $description, $fileSize, $date);
         $this->title = $title;
-        $this->format = $format;
         $this->pages = $pages;
     }
 
     public function getTitle()
     {
         return $this->title;
-    }
-
-    public function getFormat()
-    {
-        return $this->format;
     }
 
     public function getPages()
